@@ -69,6 +69,12 @@ class Validate
   private function ValidatePastabos()
   {
     $val = $this->data['Pastabos'];
+
+    if(preg_match("/[<,>]/", $val))
+    {
+      $this->addError('Pastabos', 'Netinkamas Formatas');
+    }
+    
     if(strlen($val) == 0)
     {
     }
